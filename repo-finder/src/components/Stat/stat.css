@@ -1,0 +1,10 @@
+.stat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.name-icon-container {
+  display: flex;
+  gap: 8px;
+}

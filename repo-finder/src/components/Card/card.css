@@ -1,0 +1,24 @@
+.card {
+  padding: 10px;
+  width: 400px;
+  box-shadow: 1px 1px 10px black;
+}
+
+.author {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+.author img,
+.name-icon-container img {
+  width: 20px;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
