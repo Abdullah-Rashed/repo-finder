@@ -1,9 +1,14 @@
-import { FaStar } from "react-icons/fa";
 import Card from "./components/Card/Card";
+import Searchbar from "./components/Searchbar/Searchbar";
 function App() {
   return (
     <div className="App">
-      <Card />
+      <Searchbar />
+      <div className="grid">
+        <Card />
+        <Card />
+        <Card />
+      </div>
     </div>
   );
 }

@@ -1,13 +1,13 @@
 import React from 'react';
-
-const Stat = ({ icon, name, number }) => {
+import "./stat.css"
+const Stat = ({ icon, label, text }) => {
   return (
     <div className="stat">
       <div className="name-icon-container">
         <img src={icon} alt="" />
-        <p>{name}</p>
+        <p>{label}</p>
       </div>
-      <p>{number}</p>
+      <p>{text}</p>
     </div>
   );
 }

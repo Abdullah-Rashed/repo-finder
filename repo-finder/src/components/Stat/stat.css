@@ -8,3 +8,7 @@
   display: flex;
   gap: 8px;
 }
+
+.name-icon-container img {
+  width: 20px;
+}
