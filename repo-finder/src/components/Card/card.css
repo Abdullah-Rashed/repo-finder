@@ -4,16 +4,23 @@
   border-radius: 6px;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 .author {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 14px;
+  padding: 10px 14px;
   border-bottom: 1px solid rgb(113, 113, 113);
 }
 
 .author img {
-  width: 20px;
+  width: 60px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .stats {

@@ -5,29 +5,29 @@ import fork from "../images/fork.webp"
 import issues from "../images/issues.png"
 import calendar from "../images/calendar.svg"
 import plus from "../images/plus.svg"
-import license from "../images/license.svg"
+import lic from "../images/license.svg"
 import lang from "../images/lang.svg"
 import Stat from '../Stat/Stat';
 
+const Card = (props) => {
 
-const Card = () => {
   return (
     <div className="card">
       <div className='author'>
-        <p>facebook/react</p>
-        <img src={plus} alt="" />
+        <a target="blank" href={`http://github.com/${props.full_name}`}>{props.full_name}</a>
+        <img src={props.img} alt="" />
       </div>
       <div className="stats">
-        <Stat icon={star} label="Stars" text="2,212" />
-        <Stat icon={fork} label="Forks" text="2,212" />
-        <Stat icon={issues} label="Opem issues" text="2,212" />
-        <Stat icon={calendar} label="Age" text="2,212" />
+        <Stat icon={star} label="Stars" text={props.stargazers_count} />
+        <Stat icon={fork} label="Forks" text={props.forks_count} />
+        <Stat icon={issues} label="Opem issues" text={props.open_issues_count} />
+        <Stat icon={calendar} label="Age" text={props.created_at} />
         <Stat icon={plus} label="Last commit" text="2,212" />
-        <Stat icon={license} label="License" text="2,212" />
-        <Stat icon={lang} label="Language" text="2,212" />
+        <Stat icon={lic} label="License" text={props.license} />
+        <Stat icon={lang} label="Language" text={props.language} />
       </div>
       <div className='button-container'>
-        <button className='remove'>Remove repo</button>
+        <button onClick={() => props.deRepo(props.id)} className='remove'>Remove repo</button>
       </div>
     </div>
   );
