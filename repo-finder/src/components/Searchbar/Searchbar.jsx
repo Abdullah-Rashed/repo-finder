@@ -11,10 +11,9 @@ const Searchbar = ({ handleSearch, text, setText }) => {
           placeholder='search for repos'
           value={text}
           onChange={(e) => setText(e.target.value)}
-          onkey
+          onKeyDown={(e) => handleSearch(e.key)}
         />
       </div>
-      <button onClick={handleSearch}>add</button>
     </div>
   );
 }

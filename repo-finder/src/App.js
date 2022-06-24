@@ -8,10 +8,12 @@ function App() {
   const [repoList, setRepoList] = useState([]);
 
 
-  const fetchRepos = () => {
-    fetch(`http://api.github.com/search/repositories?q=${text}`)
-      .then(response => response.json())
-      .then(data => setRepoList(prev => [...prev, data.items[0]]))
+  const fetchRepos = (key) => {
+    if (key === "Enter") {
+      fetch(`http://api.github.com/search/repositories?q=${text}`)
+        .then(response => response.json())
+        .then(data => setRepoList(prev => [...prev, data.items[0]]))
+    }
   }
 
   const deleteRepo = (id) => {
@@ -20,7 +22,6 @@ function App() {
   }
 
 
-  console.log(repoList)
   return (
     <div className="App">
       <Searchbar
