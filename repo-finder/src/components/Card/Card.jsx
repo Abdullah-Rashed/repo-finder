@@ -22,7 +22,7 @@ const Card = (props) => {
         <Stat icon={fork} label="Forks" text={props.forks_count} />
         <Stat icon={issues} label="Opem issues" text={props.open_issues_count} />
         <Stat icon={calendar} label="Age" text={props.created_at} />
-        <Stat icon={plus} label="Last commit" text="2,212" />
+        <Stat icon={plus} label="Last commit" text={props.pushed_at} />
         <Stat icon={lic} label="License" text={props.license} />
         <Stat icon={lang} label="Language" text={props.language} />
       </div>

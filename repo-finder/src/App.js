@@ -1,18 +1,20 @@
 import Card from "./components/Card/Card";
 import Searchbar from "./components/Searchbar/Searchbar";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import Suggestion from "./components/Suggestion/Suggestion";
 
 function App() {
 
   const [text, setText] = useState("");
   const [repoList, setRepoList] = useState([]);
-
+  const [suggestionArray, setSuggestionArray] = useState([]);
 
   const fetchRepos = (key) => {
     if (key === "Enter") {
       fetch(`http://api.github.com/search/repositories?q=${text}`)
         .then(response => response.json())
         .then(data => setRepoList(prev => [...prev, data.items[0]]))
+        .then(setText(""))
     }
   }
 
@@ -20,6 +22,22 @@ function App() {
     const newList = repoList.filter((repo) => repo.node_id !== id)
     setRepoList(newList)
   }
+
+  useEffect(() => {
+    if (text.length > 2) {
+      const delayedDebounceFn = setTimeout(() => {
+        console.log(text)
+        fetch(`http://api.github.com/search/repositories?q=${text}`)
+          .then(response => response.json())
+          .then(data => setSuggestionArray(data.items)
+          )
+      }, 500)
+      return () => clearTimeout(delayedDebounceFn)
+    }
+    if (text.length < 2) {
+      setSuggestionArray([])
+    }
+  }, [text])
 
 
   return (
@@ -41,6 +59,7 @@ function App() {
               forks_count={repo.forks_count}
               open_issues_count={repo.open_issues_count}
               created_at={repo.created_at}
+              pushed_at={repo.pushed_at}
               license={repo.license ? repo.license.spdx_id : "No available License"}
               language={repo.language ? repo.language : "No available language"}
               deRepo={deleteRepo}
@@ -48,6 +67,16 @@ function App() {
           )
         })}
       </div>
+      {suggestionArray.map((repo, key) => {
+        return (
+          <Suggestion
+            key={key}
+            repo={repo}
+            setText={setText}
+            setRepoList={setRepoList}
+          />
+        )
+      })}
     </div>
   );
 }

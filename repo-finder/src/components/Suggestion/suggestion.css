@@ -1,0 +1,9 @@
+.suggestion {
+  display: flex;
+  justify-content: space-around;
+}
+
+.suggestion * {
+  width: 40px;
+  pointer-events: none;
+}
