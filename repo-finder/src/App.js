@@ -1,20 +1,19 @@
 import Card from "./components/Card/Card";
 import Searchbar from "./components/Searchbar/Searchbar";
 import { useEffect, useState } from 'react';
-import Suggestion from "./components/Suggestion/Suggestion";
 
 function App() {
 
-  const [text, setText] = useState("");
+  const [searchText, setSearchText] = useState("");
   const [repoList, setRepoList] = useState([]);
   const [suggestionArray, setSuggestionArray] = useState([]);
 
-  const fetchRepos = (key) => {
+  const fetchRepo = (key) => {
     if (key === "Enter") {
-      fetch(`http://api.github.com/search/repositories?q=${text}`)
+      fetch(`http://api.github.com/search/repositories?q=${searchText}`)
         .then(response => response.json())
         .then(data => setRepoList(prev => [...prev, data.items[0]]))
-        .then(setText(""))
+        .then(setSearchText(""))
     }
   }
 
@@ -24,28 +23,29 @@ function App() {
   }
 
   useEffect(() => {
-    if (text.length > 2) {
+    if (searchText.length > 2) {
       const delayedDebounceFn = setTimeout(() => {
-        console.log(text)
-        fetch(`http://api.github.com/search/repositories?q=${text}`)
+        fetch(`http://api.github.com/search/repositories?q=${searchText}`)
           .then(response => response.json())
           .then(data => setSuggestionArray(data.items)
           )
-      }, 500)
+      }, 800);
       return () => clearTimeout(delayedDebounceFn)
     }
-    if (text.length < 2) {
+    if (searchText.length < 2) {
       setSuggestionArray([])
     }
-  }, [text])
+  }, [searchText])
 
 
   return (
-    <div className="App">
+    <>
       <Searchbar
-        handleSearch={fetchRepos}
-        text={text}
-        setText={setText}
+        handleSearch={fetchRepo}
+        text={searchText}
+        setText={setSearchText}
+        suggestionArray={suggestionArray}
+        setRepoList={setRepoList}
       />
       <div className="grid">
         {repoList.map((repo, key) => {
@@ -62,22 +62,12 @@ function App() {
               pushed_at={repo.pushed_at}
               license={repo.license ? repo.license.spdx_id : "No available License"}
               language={repo.language ? repo.language : "No available language"}
-              deRepo={deleteRepo}
+              deleteRepo={deleteRepo}
             />
           )
         })}
       </div>
-      {suggestionArray.map((repo, key) => {
-        return (
-          <Suggestion
-            key={key}
-            repo={repo}
-            setText={setText}
-            setRepoList={setRepoList}
-          />
-        )
-      })}
-    </div>
+    </>
   );
 }
 

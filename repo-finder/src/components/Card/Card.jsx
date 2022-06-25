@@ -27,7 +27,7 @@ const Card = (props) => {
         <Stat icon={lang} label="Language" text={props.language} />
       </div>
       <div className='button-container'>
-        <button onClick={() => props.deRepo(props.id)} className='remove'>Remove repo</button>
+        <button onClick={() => props.deleteRepo(props.id)} className='remove'>Remove repo</button>
       </div>
     </div>
   );

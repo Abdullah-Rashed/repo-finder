@@ -1,9 +1,50 @@
+.suggeststion-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  background-color: white;
+}
+
 .suggestion {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  padding: 8px 12px;
 }
 
 .suggestion * {
-  width: 40px;
   pointer-events: none;
+}
+
+.author-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1;
+  gap: 12px;
+}
+
+.author-container img {
+  width: 40px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.suggeststion-container .suggestion:hover {
+  background-color: #efefef;
+}
+
+.star-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.star-container img {
+  width: 20px;
+  object-fit: cover;
 }

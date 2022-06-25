@@ -1,9 +1,14 @@
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
   width: 100%;
+  position: absolute;
+  top: 20px;
+  right: 0;
+  left: 0;
+  z-index: 100;
 }
 
 .searchbar-container {
@@ -24,4 +29,10 @@
   left: 10px;
   top: 10px;
   margin-right: 10px;
+}
+
+.searchbar-container .suggeststion-container {
+  padding: 10px;
+  max-height: 260px;
+  overflow-y: auto;
 }

@@ -1,7 +1,8 @@
 import React from 'react';
 import "./searchbar.css"
 import search from "../images/search.svg"
-const Searchbar = ({ handleSearch, text, setText }) => {
+import Suggestion from '../Suggestion/Suggestion';
+const Searchbar = ({ handleSearch, text, setText, suggestionArray, setRepoList }) => {
   return (
     <div className='container'>
       <div className="searchbar-container">
@@ -13,6 +14,18 @@ const Searchbar = ({ handleSearch, text, setText }) => {
           onChange={(e) => setText(e.target.value)}
           onKeyDown={(e) => handleSearch(e.key)}
         />
+        <div className="suggeststion-container">
+          {suggestionArray.map((repo, key) => {
+            return (
+              <Suggestion
+                key={key}
+                repo={repo}
+                setText={setText}
+                setRepoList={setRepoList}
+              />
+            )
+          })}
+        </div>
       </div>
     </div>
   );
