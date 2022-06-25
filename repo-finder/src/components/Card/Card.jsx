@@ -14,7 +14,7 @@ const Card = (props) => {
   return (
     <div className="card">
       <div className='author'>
-        <a target="blank" href={`http://github.com/${props.full_name}`}>{props.full_name}</a>
+        <a target="blank" href={`https://github.com/${props.full_name}`}>{props.full_name}</a>
         <img src={props.img} alt="" />
       </div>
       <div className="stats">

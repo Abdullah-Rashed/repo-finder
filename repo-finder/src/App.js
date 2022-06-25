@@ -10,7 +10,7 @@ function App() {
 
   const fetchRepo = (key) => {
     if (key === "Enter") {
-      fetch(`http://api.github.com/search/repositories?q=${text}`)
+      fetch(`https://api.github.com/search/repositories?q=${text}`)
         .then(response => response.json())
         .then(data => setRepoList(prev => [...prev, data.items[0]]))
         .then(setText(""))
@@ -25,7 +25,7 @@ function App() {
   useEffect(() => {
     if (text.length > 2) {
       const delayedDebounceFn = setTimeout(() => {
-        fetch(`http://api.github.com/search/repositories?q=${text}`)
+        fetch(`https://api.github.com/search/repositories?q=${text}`)
           .then(response => response.json())
           .then(data => setSuggestionArray(data.items)
           )
