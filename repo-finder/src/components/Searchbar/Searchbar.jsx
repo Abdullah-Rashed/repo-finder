@@ -9,7 +9,7 @@ const Searchbar = ({ handleSearch, text, setText, suggestionArray, setRepoList }
         <img className='search-icon' src={search} alt="" />
         <input className='searchbar'
           type="text"
-          placeholder='search for repos'
+          placeholder='Search for repos'
           value={text}
           onChange={(e) => setText(e.target.value)}
           onKeyDown={(e) => handleSearch(e.key)}

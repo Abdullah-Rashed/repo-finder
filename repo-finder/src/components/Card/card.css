@@ -1,7 +1,7 @@
 .card {
   box-shadow: 1px 1px 10px 4px lightgray;
-  border-radius: 6px;
-  width: 400px;
+  border-radius: 8px;
+  width: 500px;
   display: flex;
   flex-direction: column;
 }
@@ -15,12 +15,12 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 14px;
+  padding: 14px 14px;
   border-bottom: 1px solid rgb(113, 113, 113);
 }
 
 .author img {
-  width: 60px;
+  width: 50px;
   object-fit: cover;
   border-radius: 8px;
 }
@@ -36,15 +36,60 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-top: 1px solid rgb(113, 113, 113);
+  margin-top: 10px;
 }
 
 .remove {
   width: 100%;
   padding: 16px 0px;
-  background-color: transparent;
+  background-color: white;
   border: none;
   cursor: pointer;
   color: crimson;
+  font-size: 1rem;
   font-weight: bold;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 1700px) {
+  .card {
+    width: 480px;
+  }
+}
+
+/* @media screen and (max-width: 1620px) {
+  .card {
+    width: 460px;
+  }
+} */
+
+@media screen and (max-width: 1550px) {
+  .card {
+    width: 400px;
+  }
+}
+
+
+@media screen and (max-width: 1300px) {
+  .card {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 1220px) {
+  .card {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .card {
+    width: 335px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .card {
+    width: 99%;
+  }
 }

@@ -2,10 +2,12 @@ import React from 'react';
 import "./suggestion.css"
 import img from "../images/star.png"
 const Suggestion = ({ repo, setText, setRepoList, }) => {
+
   const addFromSuggestions = () => {
     setRepoList(prev => [...prev, repo])
     setText("")
   }
+
   return (
     <div className='suggestion' onClick={addFromSuggestions}>
       <div className="author-container">
@@ -17,7 +19,6 @@ const Suggestion = ({ repo, setText, setRepoList, }) => {
         <p>{repo.stargazers_count}</p>
       </div>
     </div>
-
   );
 }
 

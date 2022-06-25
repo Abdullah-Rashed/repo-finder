@@ -15,9 +15,39 @@ body {
   grid-template-columns: repeat(3, 1fr);
   row-gap: 40px;
   justify-items: center;
+  align-items: center;
   z-index: 1;
   position: absolute;
   top: 100px;
   right: 0;
   left: 0;
+}
+
+@media screen and (max-width: 1220px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 30px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .grid {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .grid {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
 }

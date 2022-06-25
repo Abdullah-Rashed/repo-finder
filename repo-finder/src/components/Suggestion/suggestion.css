@@ -4,6 +4,7 @@
   justify-content: space-between;
   width: 100%;
   align-items: center;
+  border-radius: 6px;
   background-color: white;
 }
 
@@ -47,4 +48,16 @@
 .star-container img {
   width: 20px;
   object-fit: cover;
+}
+
+@media screen and (max-width: 460px) {
+  .star-container {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .author-container p {
+    font-size: 13px;
+  }
 }
